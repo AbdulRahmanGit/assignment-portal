@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId');
 
     // WebSocket connection
-    const ws = new WebSocket('ws://localhost:5000/ws');
+    //const ws = new WebSocket('ws://localhost:5000/ws');
     ws.onopen = () => {
         console.log('WebSocket connected');
         // Send registration event to the server with userId
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     async function fetchAssignments() {
         try {
-            const response = await fetch('http://localhost:5000/api/users/assignments', {
+            const response = await fetch('/api/users/assignments', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
