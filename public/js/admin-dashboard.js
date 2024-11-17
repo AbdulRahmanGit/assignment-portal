@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminId = localStorage.getItem('userId');
 
     // WebSocket connection
-    const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
+    //const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
 
     ws.onopen = () => {
         // Register the admin
