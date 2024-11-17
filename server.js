@@ -86,6 +86,7 @@ const getWelcomePage = () => `
     <div class="container">
         <h1>Assignment Portal API</h1>
         <p>Welcome to the Assignment Portal API! Available endpoints:</p>
+        <p><strong>Note:</strong> <em>Use this deployed link to test POST methods in Postman:</em> <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a></p>
         
         <h3>Authentication:</h3>
         <ul>
@@ -108,7 +109,7 @@ const getWelcomePage = () => `
         </ul>
         
         <p style="margin-top: 20px; color: #666;">
-            🔗 Frontend: <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a>
+            🔗 Testing Link: <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a>
         </p>
     </div>
 </body>
