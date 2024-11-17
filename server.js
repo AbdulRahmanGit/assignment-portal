@@ -40,7 +40,7 @@ app.use('/api/auth', authRoutes); // Authentication routes
 
 
 // Home page with list of available URLs
-app.get('/', (req, res) => {
+app.get('/check', (req, res) => {
     res.send(`
         <h1>Welcome to the Assignment Submission Portal</h1>
         <p>Use the following URLs to explore the portal:</p>
@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 
 // Handle 404 errors (if no route matches)
 app.use((req, res, next) => {
-    res.status(404).send('404 Not Found');
+    res.status(404).send('404 Not Found or invalid Method');
 });
 
 // For local development
