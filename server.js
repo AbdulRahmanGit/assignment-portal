@@ -1,7 +1,7 @@
 // Import required modules
 require('dotenv').config();
 const express = require('express');
-//const path = require('path');
+const path = require('path');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
@@ -18,7 +18,12 @@ app.use(express.json());
 connectDB();
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// You can also set up your routes here
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // API Routes
 app.use('/api/admin', adminRoutes); // Admin-related routes
