@@ -127,7 +127,7 @@ This project implements a backend system for an **Assignment Submission Portal**
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/AbdulRahmanGit/assignment-portal.git
    cd assignment-portal
    ```
 
