@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAssignments() {
         try {
-            const response = await fetch('http://localhost:5000/api/admin/assignments', {
+            const response = await fetch('/api/admin/assignments', {
                 
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.handleAssignment = async (id, action) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/assignments/${id}/${action}`, {
+            const response = await fetch(`/api/admin/assignments/${id}/${action}`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
