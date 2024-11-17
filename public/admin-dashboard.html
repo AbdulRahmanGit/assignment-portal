@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Assignment Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>Admin Dashboard</h1>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="assignments-container">
+                <h2>Assignments to Evaulate</h2>
+                <div class="table-container">
+                    <table id="assignmentsTable">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Task</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assignmentsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast" class="toast">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

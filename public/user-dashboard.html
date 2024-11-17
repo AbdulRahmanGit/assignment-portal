@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Assignment Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>User Dashboard</h1>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="submit-assignment">
+                <h2>Submit New Assignment</h2>
+                <form id="assignmentForm">
+                    <div class="form-group">
+                        <label for="adminSelect">Select Admin</label>
+                        <select id="adminSelect" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDescription">Task Description</label>
+                        <textarea id="taskDescription" required rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Assignment</button>
+                </form>
+            </div>
+
+            <div class="assignments-history">
+                <h2>My Assignments</h2>
+                <div class="table-container">
+                    <table id="assignmentsTable">
+                        <thead>
+                            <tr>
+                                <th>Admin</th>
+                                <th>Task</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assignmentsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast" class="toast">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="js/user-dashboard.js"></script>
+</body>
+</html>

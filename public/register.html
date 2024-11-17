@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Portal - Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                <h2>Register</h2>
+            </div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                    <span class="error" id="usernameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                    <span class="error" id="passwordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="userType">Register as</label>
+                    <select id="userType" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+            <p class="toggle-form">
+                Already have an account? 
+                <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
