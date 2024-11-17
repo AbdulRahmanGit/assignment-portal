@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000'; 
 /*
     // WebSocket connection
-    const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
+    //const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
 
     ws.onopen = () => {
         // Register the admin

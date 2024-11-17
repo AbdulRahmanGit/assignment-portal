@@ -1,4 +1,4 @@
-Here’s a detailed README file for your **Assignment Portal** project based on the provided `app.js` code.
+
 
 ```markdown
 # Assignment Portal
