@@ -15,6 +15,9 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // API Routes
 app.use('/api/admin', adminRoutes); // Admin-related routes
 app.use('/api/users', userRoutes); // User-related routes

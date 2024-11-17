@@ -1,12 +1,13 @@
 const express = require('express');
 const User = require('../models/User');
 const Assignment = require('../models/Assignment');
-const protect = require('../middlewares/auth'); // Import the middleware // Import the isAdmin middleware
+const protect = require('../middlewares/auth'); // Import the middleware 
+
 const router = express.Router();
 
 // Get Admins (requires admin role)
 router.get('/admins', async (req, res) => {
-    try {
+    try {// Fetching  only necessary fields
         const admins = await User.find({ role: 'admin' }).select('username'); // Fetch only necessary fields
         res.json(admins);
         
@@ -47,7 +48,5 @@ router.post('/upload', protect, async (req, res) => {
     }
 });
 
-// Get Admins (requires admin role) -  This route is likely unnecessary if you're already using the protect middleware
-// Consider removing this route and fetching admins directly from the frontend if needed.
 
 module.exports = router;
