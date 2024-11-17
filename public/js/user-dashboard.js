@@ -5,27 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const toast = document.getElementById('toast');
     const userId = localStorage.getItem('userId');
-
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000'; 
     // WebSocket connection
-    const ws = new WebSocket('ws://localhost:5000/ws');
+    /*const ws = new WebSocket('ws://localhost:5000/ws');
     ws.onopen = () => {
         console.log('WebSocket connected');
         // Send registration event to the server with userId
         ws.send(JSON.stringify({ type: 'registerUser', userId }));
-    };
-
-    ws.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        if (data.type === 'assignmentStatus' && data.userId === userId) {
-            fetchAssignments();  // Refetch assignments to reflect updated status
-            showToast(`Assignment status updated to ${data.status}!`, 'success');
-        }
-
-        // If a new assignment is created, update the assignments list
-        if (data.type === 'newAssignment') {
-            fetchAssignments(); // Refetch assignments
-        }
-    };
+        
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'assignmentStatus' && data.userId === userId) {
+                fetchAssignments();  // Refetch assignments to reflect updated status
+                showToast(`Assignment status updated to ${data.status}!`, 'success');
+            }
+            
+            // If a new assignment is created, update the assignments list
+            if (data.type === 'newAssignment') {
+                fetchAssignments(); // Refetch assignments
+            }
+        };
+        };*/
 
     function showToast(message, type) {
         toast.className = `toast show ${type}`;
@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.className = 'toast';
         }, 5000);
     }
-
+    
     async function fetchAdmins() {
         try {
-            const response = await fetch('http://localhost:5000/api/users/admins', {
+            const response = await fetch(`${backendUrl}/api/users/admins`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     async function fetchAssignments() {
         try {
-            const response = await fetch('http://localhost:5000/api/users/assignments', {
+            const response = await fetch(`${backendUrl}/api/users/assignments`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         try {
-            const response = await fetch('http://localhost:5000/api/users/upload', {
+            const response = await fetch(`${backendUrl}/api/users/upload`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

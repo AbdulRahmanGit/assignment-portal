@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const toast = document.getElementById('toast');
     const adminId = localStorage.getItem('userId');
-
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000'; 
+/*
     // WebSocket connection
     const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
 
@@ -34,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.className = 'toast';
         }, 5000);
     }
-
+*/
     async function fetchAssignments() {
         try {
-            const response = await fetch('http://localhost:5000/api/admin/assignments', {
+            const response = await fetch(`${backendUrl}/api/admin/assignments`, {
                 
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.handleAssignment = async (id, action) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/assignments/${id}/${action}`, {
+            const response = await fetch(`${backendUrl}/api/admin/assignments/${id}/${action}`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

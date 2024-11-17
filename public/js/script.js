@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
             return;
         }
-
+        const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
         try {
-            const response = await fetch('http://localhost:5000/api/auth/register', {
+            const response = await fetch(`${backendUrl}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 showToast('Registration successful! Please login.', 'success');
                 setTimeout(() => {
-                    window.location.href = 'login.html';
+                    window.location.href = '/login.html';
                 }, 10000);
             } else {
                 showToast(data.message || 'Registration failed', 'error');
