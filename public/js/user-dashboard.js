@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAdmins() {
         try {
-            const response = await fetch('http://localhost:5000/api/users/admins', {
+            const response = await fetch('/api/users/admins', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         try {
-            const response = await fetch('http://localhost:5000/api/users/upload', {
+            const response = await fetch('/api/users/upload', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
