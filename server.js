@@ -10,7 +10,17 @@ const app = express();
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/auth');
-app.use(cors()); // Allow all origins
+
+// CORS configuration
+const corsOptions = {
+    origin: '*',  // Allow all origins (can be changed to a specific URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
+    credentials: true,  // Allow cookies to be sent with requests (optional)
+};
+
+app.use(cors(corsOptions));  // Apply CORS with the configuration
+
 // Middleware
 app.use(express.json());
 
@@ -22,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // You can also set up your routes here
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
 // API Routes
