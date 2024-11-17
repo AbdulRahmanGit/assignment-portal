@@ -30,19 +30,30 @@ connectDB();
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// You can also set up your routes here
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'register.html'));
-});
+
 
 // API Routes
 app.use('/api/admin', adminRoutes); // Admin-related routes
 app.use('/api/users', userRoutes); // User-related routes
 app.use('/api/auth', authRoutes); // Authentication routes
 
-// Sample route (home page)
+
+
+// Home page with list of available URLs
 app.get('/', (req, res) => {
-    res.send('Assignment Portal is running!');
+    res.send(`
+        <h1>Welcome to the Assignment Submission Portal</h1>
+        <p>Use the following URLs to explore the portal:</p>
+        <ul>
+            <li><a href="/api/auth/register">POST /api/auth/register</a> - Register a new user or admin</li>
+            <li><a href="/api/auth/login">POST /api/auth/login</a> - Login as a user or admin</li>
+            <li><a href="/api/users/upload">POST /api/users/upload</a> - Upload an assignment (User)</li>
+            <li><a href="/api/users/admins">GET /api/users/admins</a> - Fetch all registered admins</li>
+            <li><a href="/api/admin/assignments">GET /api/admin/assignments</a> - View assignments tagged to the admin</li>
+            <li><a href="/api/admin/assignments/:id/accept">POST /api/admin/assignments/:id/accept</a> - Accept an assignment</li>
+            <li><a href="/api/admin/assignments/:id/reject">POST /api/admin/assignments/:id/reject</a> - Reject an assignment</li>
+        </ul>
+    `);
 });
 
 // Handle 404 errors (if no route matches)
