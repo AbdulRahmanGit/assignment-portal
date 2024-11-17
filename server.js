@@ -112,6 +112,10 @@ const getWelcomePage = () => `
             🔗 Testing Link: <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a>
         </p>
     </div>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
 `;
