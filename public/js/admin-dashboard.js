@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchAssignments() {
         try {
             const response = await fetch('http://localhost:5000/api/admin/assignments', {
+                
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

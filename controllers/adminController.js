@@ -3,7 +3,7 @@ const Assignment = require('../models/Assignment');
 exports.viewAssignments = async (req, res) => {
     try {
         // Fetch assignments tagged to the admin and populate userId to get username
-        const assignments = await Assignment.find({ admin: req.user.id }) // Assuming admin ID is stored in req.admin.adminId
+        const assignments = await Assignment.find({ adminId: req.user.id }) // Assuming admin ID is stored in req.admin.adminId
             .populate('userId', 'username') // Populate the username field from the User model
             .populate('adminId', 'username') // Populate the username field from the User model
             .exec();

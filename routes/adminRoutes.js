@@ -30,9 +30,9 @@ router.get('/assignments', protect, async (req, res) => {
  
 // Fetch Assignments submitted by the user (Protected route)
 router.get('/assignments', protect, async (req, res) => {
-    const userId = req.user._id;  
+    const username = req.user.username;  
     try {
-        const assignments = await Assignment.find({ userId })
+        const assignments = await Assignment.find({ adminId : req.user.id })
             .populate('userId', 'username')
             .populate('adminId', 'username'); // Only populate adminId
 

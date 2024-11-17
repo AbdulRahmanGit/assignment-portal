@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userId = localStorage.getItem('userId');  // Ensure this is being set correctly
                 const myAssignments = assignments.filter(a => a.userId._id === userId);  // Adjust filter logic as needed
                 
-                displayAssignments(myAssignments);
+                displayAssignments(assignments);
             } else {
                 showToast('Failed to fetch assignments', 'error');
             }
