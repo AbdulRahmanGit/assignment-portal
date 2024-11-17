@@ -96,16 +96,16 @@ const getWelcomePage = () => `
 
         <h3>User Operations:</h3>
         <ul>
-            <li><span class="method post">POST</span> /api/users/upload - Upload an assignment</li><em>Protected</em>
+            <li><span class="method post">POST</span> /api/users/upload - Upload an assignment <em>Protected</em></li>
             <li><span class="method get">GET</span> /api/users/admins - Fetch all admins</li>
-            <li><span class="method get">GET</span> /api/users/assignments - Fetch assignments completed</li><em>Protected</em>
+            <li><span class="method get">GET</span> /api/users/assignments - Fetch assignments completed <em>Protected</em></li>
         </ul>
 
         <h3>Admin Operations:</h3>
         <ul>
-            <li><span class="method get">GET</span> /api/admin/assignments - View assignments</li><em>Protected</em>
-            <li><span class="method post">POST</span> /api/admin/assignments/:id/accept - Accept assignment</li><em>Protected</em>
-            <li><span class="method post">POST</span> /api/admin/assignments/:id/reject - Reject assignment</li><em>Protected</em>
+            <li><span class="method get">GET</span> /api/admin/assignments - View assignments <em>Protected</em></li>
+            <li><span class="method post">POST</span> /api/admin/assignments/:id/accept - Accept assignment <em>Protected</em></li>
+            <li><span class="method post">POST</span> /api/admin/assignments/:id/reject - Reject assignment <em>Protected</em></li>
         </ul>
         
         <p style="margin-top: 20px; color: #666;">
