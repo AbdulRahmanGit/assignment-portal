@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 //const path = require('path');
+const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
 
@@ -9,7 +10,7 @@ const app = express();
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/auth');
-
+app.use(cors()); // Allow all origins
 // Middleware
 app.use(express.json());
 
