@@ -89,7 +89,12 @@ This project implements a backend system for an **Assignment Submission Portal**
 {
     "username": "String",
     "email": "String",
-    "password": "String"
+    "password": "String",
+   "role": { 
+        "type": "String", 
+        "enum": ["user", "admin"], 
+        "default": "user"
+    }
 }
 ```
 
