@@ -1,3 +1,4 @@
+import config from './config.js';
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registerForm');
     const toast = document.getElementById('toast');
@@ -68,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
             return;
         }
-        //const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
+        const backendUrl = config.BACKEND_URL || 'http://localhost:5000';
         try {
-            const response = await fetch('https://assignment-portal-mu.vercel.app//api/auth/register', {
+            const response = await fetch(`${backendUrl}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

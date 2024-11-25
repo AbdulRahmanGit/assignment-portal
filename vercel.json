@@ -12,7 +12,7 @@
       "dest": "server.js"
     },
     {
-      "src": "/check",
+      "src": "/public/(.*)",
       "dest": "server.js"
     },
     {

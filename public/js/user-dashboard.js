@@ -1,3 +1,5 @@
+
+import config from './config.js';
 document.addEventListener('DOMContentLoaded', () => {
     const assignmentForm = document.getElementById('assignmentForm');
     const adminSelect = document.getElementById('adminSelect');
@@ -5,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const toast = document.getElementById('toast');
     const userId = localStorage.getItem('userId');
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000'; 
+    const backendUrl = config.BACKEND_URL || 'http://localhost:5000'; 
     // WebSocket connection
     /*const ws = new WebSocket('ws://localhost:5000/ws');
     ws.onopen = () => {

@@ -1,41 +1,42 @@
+import config from './config.js';
 document.addEventListener('DOMContentLoaded', () => {
     const assignmentsBody = document.getElementById('assignmentsBody');
     const logoutBtn = document.getElementById('logoutBtn');
     const toast = document.getElementById('toast');
     const adminId = localStorage.getItem('userId');
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000'; 
-/*
+    const backendUrl = config.BACKEND_URL || 'http://localhost:5000'; 
+    /*
     // WebSocket connection
     //const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
-
+    
     ws.onopen = () => {
         // Register the admin
         ws.send(JSON.stringify({ event: 'registerAdmin', adminId }));
     };
-
+    
     ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
-
+        
         // Handle new assignment broadcasted to all admins
         if (data.event === 'newAssignment') {
             fetchAssignments();
             showToast('New assignment received!', 'success');
         }
-
+        
         // Handle assignments fetched for this admin
         if (data.event === 'adminAssignments') {
             displayAssignments(data.assignments);
         }
     };
-
+    */
     function showToast(message, type) {
+
         toast.className = `toast show ${type}`;
         toast.querySelector('.toast-message').textContent = message;
         setTimeout(() => {
             toast.className = 'toast';
         }, 5000);
     }
-*/
     async function fetchAssignments() {
         try {
             const response = await fetch(`${backendUrl}/api/admin/assignments`, {
