@@ -18,6 +18,7 @@
     {
       "src": "/(.*)",
       "dest": "server.js"
-    }
+    },
+    { "src": "/js/config.js", "dest": "/public/js/config.js" }
   ]
 }

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!validateField(username) || !validateField(password)) {
             return;
         }
-        const backendUrl = config.BACKEND_URL || 'http://localhost:5000';
+        const backendUrl = 'https://assignment-portal-mu.vercel.app' || 'http://localhost:5000';
         try {
             const response = await fetch(`${backendUrl}/api/auth/login`, {
                 method: 'POST',
