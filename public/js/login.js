@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!validateField(username) || !validateField(password)) {
             return;
         }
-        const backendUrl = 'https://assignment-portal-mu.vercel.app' || 'http://localhost:5000';
+        const backendUrl = 'http://localhost:5000';
         try {
             const response = await fetch(`${backendUrl}/api/auth/login`, {
                 method: 'POST',
@@ -54,16 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const data = await response.json();
-            console.log(data)
+
             if (response.ok) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('userType', userType.value);
                 showToast('Login successful!', 'success');
-                print(data)
+                
                 setTimeout(() => {
-                    const userType = localStorage.getItem('userType');
-                    const redirectUrl = userType === 'admin' ? '/admin-dashboard.html' : '/user-dashboard.html';
-                    window.location.href = config.backendUrl + redirectUrl; 
+                    window.location.href = userType.value === 'admin' 
+                        ? 'admin-dashboard.html' 
+                        : 'user-dashboard.html';
                 }, 1500);
             } else {
                 showToast(data.message || 'Login failed', 'error');

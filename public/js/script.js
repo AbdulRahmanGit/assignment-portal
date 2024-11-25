@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
             return;
         }
-        const backendUrl = 'https://assignment-portal-mu.vercel.app' || 'http://localhost:5000';
+        const backendUrl = 'http://localhost:5000';
         try {
             const response = await fetch(`${backendUrl}/api/auth/register`, {
                 method: 'POST',
@@ -88,10 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(data.body);
             if (response.ok) {
                 showToast('Registration successful! Please login.', 'success');
-                setTimeout(() => {
-                    window.location.href = config.BACKEND_URL + redirectUrl; 
-                    
-                }, 100);
+                setTimeout(() => {z
+                    window.location.href = '/login.html';
+                }, 10000);
             } else {
                 showToast(data.message || 'Registration failed', 'error');
             }

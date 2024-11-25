@@ -86,7 +86,6 @@ const getWelcomePage = () => `
     <div class="container">
         <h1>Assignment Portal API</h1>
         <p>Welcome to the Assignment Portal API! Available endpoints:</p>
-        <p><strong>Note:</strong> <em>Use this deployed link to test POST methods in Postman:</em> <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a></p>
         
         <h3>Authentication:</h3>
         <ul>
@@ -96,26 +95,22 @@ const getWelcomePage = () => `
 
         <h3>User Operations:</h3>
         <ul>
-            <li><span class="method post">POST</span> /api/users/upload - Upload an assignment <em>Protected</em></li>
+            <li><span class="method post">POST</span> /api/users/upload - Upload an assignment</li>
             <li><span class="method get">GET</span> /api/users/admins - Fetch all admins</li>
-            <li><span class="method get">GET</span> /api/users/assignments - Fetch assignments completed <em>Protected</em></li>
+            <li><span class="method get">GET</span> /api/users/assignments - Fetch assignments completed</li>
         </ul>
 
         <h3>Admin Operations:</h3>
         <ul>
-            <li><span class="method get">GET</span> /api/admin/assignments - View assignments <em>Protected</em></li>
-            <li><span class="method post">POST</span> /api/admin/assignments/:id/accept - Accept assignment <em>Protected</em></li>
-            <li><span class="method post">POST</span> /api/admin/assignments/:id/reject - Reject assignment <em>Protected</em></li>
+            <li><span class="method get">GET</span> /api/admin/assignments - View assignments</li>
+            <li><span class="method post">POST</span> /api/admin/assignments/:id/accept - Accept assignment</li>
+            <li><span class="method post">POST</span> /api/admin/assignments/:id/reject - Reject assignment</li>
         </ul>
         
         <p style="margin-top: 20px; color: #666;">
-            🔗 Testing Link: <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a>
+            🔗 Frontend: <a href="https://assignment-portal-mu.vercel.app/">https://assignment-portal-mu.vercel.app/</a>
         </p>
     </div>
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
 `;

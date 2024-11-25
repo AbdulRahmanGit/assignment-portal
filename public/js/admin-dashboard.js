@@ -1,10 +1,10 @@
-import config from './config.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const assignmentsBody = document.getElementById('assignmentsBody');
     const logoutBtn = document.getElementById('logoutBtn');
     const toast = document.getElementById('toast');
     const adminId = localStorage.getItem('userId');
-    const backendUrl = 'https://assignment-portal-mu.vercel.app' || 'http://localhost:5000'; 
+    const backendUrl = 'http://localhost:5000'; 
     /*
     // WebSocket connection
     //const ws = new WebSocket('ws://localhost:5000');  // Ensure WebSocket connection
