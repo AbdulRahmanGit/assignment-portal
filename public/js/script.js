@@ -89,8 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 showToast('Registration successful! Please login.', 'success');
                 setTimeout(() => {
-                    window.location.href = '/login.html';
-                }, 10000);
+                    window.location.href = config.BACKEND_URL + redirectUrl; 
+                    
+                }, 100);
             } else {
                 showToast(data.message || 'Registration failed', 'error');
             }

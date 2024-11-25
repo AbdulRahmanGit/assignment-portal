@@ -54,16 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const data = await response.json();
-
+            console.log(data)
             if (response.ok) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('userType', userType.value);
                 showToast('Login successful!', 'success');
-                
+                print(data)
                 setTimeout(() => {
-                    window.location.href = userType.value === 'admin' 
-                        ? 'admin-dashboard.html' 
-                        : 'user-dashboard.html';
+                    const userType = localStorage.getItem('userType');
+                    const redirectUrl = userType === 'admin' ? '/admin-dashboard.html' : '/user-dashboard.html';
+                    window.location.href = config.backendUrl + redirectUrl; 
                 }, 1500);
             } else {
                 showToast(data.message || 'Login failed', 'error');
