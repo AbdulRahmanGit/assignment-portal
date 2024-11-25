@@ -1,4 +1,4 @@
 const config = {
-    BACKEND_URL: '' // Or your URL
+    BACKEND_URL: 'https://assignment-portal-mu.vercel.app' // Or your URL
   };
 export default config;
