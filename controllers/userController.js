@@ -38,17 +38,18 @@ exports.loginUser = async (req, res) => {
 
 exports.uploadAssignment = async (req, res) => {
     try {
-        const { task, adminId } = req.body;
+        const { task, submission, adminId } = req.body;
 
         // Validate input
-        if (!task || !adminId) {
-            return res.status(400).json({ message: 'Task and Admin ID are required' });
+        if (!task || !adminId || !submission) {
+            return res.status(400).json({ message: 'Task, assignment ,Admin ID are required' });
         }
 
         const newAssignment = new Assignment({
             userId: req.user.id, // User ID from token middleware
             task,
-            adminId, // Associate the assignment with the selected admin
+            submission,
+            adminId // Associate the assignment with the selected admin
         });
 
         await newAssignment.save();

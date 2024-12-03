@@ -44,7 +44,7 @@ Thumbs.db
 Desktop.ini
 
 # Package-lock and yarn-lock files (if you don't want them in version control)
-package-lock.json
+/package-lock.json
 yarn.lock
 
 # Test coverage reports
@@ -70,3 +70,5 @@ coverage/
 
 # Ignore data folder if present
 /data/
+
+assignment-keys.json

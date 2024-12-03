@@ -1,16 +1,15 @@
 const express = require('express');
 const Assignment = require('../models/Assignment');
 const User = require('../models/User');
-const protect = require('../middlewares/auth'); // Import the middleware
+const protect = require('../middlewares/auth');
 const router = express.Router();
 
 // Fetch Assignments submitted by the user (Protected route)
 router.get('/assignments', protect, async (req, res) => {
-    const username = req.user.username;  
     try {
-        const assignments = await Assignment.find({ adminId : req.user.id })
+        const assignments = await Assignment.find({ adminId: req.user.id })
             .populate('userId', 'username')
-            .populate('adminId', 'username'); // Only populate adminId
+            .populate('adminId', 'username');
 
         res.status(200).json(assignments);
     } catch (err) {
@@ -18,8 +17,6 @@ router.get('/assignments', protect, async (req, res) => {
     }
 });
 
-  
-  
 // Accept Assignment (Admin-only route)
 router.post('/assignments/:id/accept', protect, async (req, res) => {
     const { id } = req.params;
@@ -35,10 +32,10 @@ router.post('/assignments/:id/accept', protect, async (req, res) => {
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
-  });
-  
-  // Reject Assignment (Admin-only route)
-  router.post('/assignments/:id/reject', protect, async (req, res) => {
+});
+
+// Reject Assignment (Admin-only route)
+router.post('/assignments/:id/reject', protect, async (req, res) => {
     const { id } = req.params;
     try {
       const assignment = await Assignment.findById(id);
@@ -52,6 +49,25 @@ router.post('/assignments/:id/accept', protect, async (req, res) => {
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
-  });
-  
+});
+
+// Add feedback to an assignment (Admin-only route)
+router.post('/assignments/:id/feedback', protect, async (req, res) => {
+    const { id } = req.params;
+    const { feedback } = req.body;
+    try {
+        const assignment = await Assignment.findById(id);
+        if (assignment) {
+            assignment.feedback = feedback;
+            await assignment.save();
+            res.json({ message: 'Feedback added successfully' });
+        } else {
+            res.status(404).json({ message: 'Assignment not found' });
+        }
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
 module.exports = router;
+
